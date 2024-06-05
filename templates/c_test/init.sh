@@ -1,7 +1,6 @@
 #!/bin/zsh
 
-test_temp=~/.local/shell/templates/c_test/templates/test.sh
-test_cache=.test_cache
+source ~/.myscripts/config/c_test_config.cfg
 
 # === Create Test Repository ===
 if [[ ! -d tests ]]; then

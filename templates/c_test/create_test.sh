@@ -1,7 +1,6 @@
 #!/bin/zsh
 
-make_temp=~/.local/shell/templates/c_test/templates/Makefile
-run_temp=~/.local/shell/templates/c_test/templates/run.sh
+source ~/.myscripts/config/c_test_config.cfg
 
 if [[ -z $1 ]]; then
     echo 'No input given'

@@ -1,8 +1,6 @@
 #!/bin/zsh
 
-make_temp=~/.local/shell/templates/latex/templates/Makefile
-run_temp=~/.local/shell/templates/latex/templates/run.sh
-doc_temp=~/.local/shell/templates/latex/templates/main.tex
+source ~/.myscripts/config/latex_config.cfg
 
 # Create Directory Tree
 if [ $# -eq 0 ]; then
