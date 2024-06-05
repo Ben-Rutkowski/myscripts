@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+source ~/.myscripts/config/piconfig.cfg
+
+pi_user='benjaminrutkowski'
+pi_name='raspberrypi'
+
+echo "Logging in to $pi_user@$pi_name"
+
+echo "pi_user:$pi_user""\npi_name:$pi_name\npi_curdir:/home/$pi_user/" > $details

@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+source ~/.myscripts/config/piconfig.cfg
+
+pi_user=$(awk -F':' '$1=="pi_user" {print $2}' $details)
+pi_name=$(awk -F':' '$1=="pi_name" {print $2}' $details)
+
+echo "Connecting to $pi_user@$pi_name"
+
+ssh $pi_user@$pi_name.local

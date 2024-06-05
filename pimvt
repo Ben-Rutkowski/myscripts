@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+source ~/.myscripts/config/piconfig.cfg
+
+if [[ -z $1 ]]; then
+    echo "No file selected"
+    exit 0
+fi
+
+pi_user=$(awk -F':' '$1=="pi_user" {print $2}' $details)
+pi_name=$(awk -F':' '$1=="pi_name" {print $2}' $details)
+pi_curdir=$(awk -F':' '$1=="pi_curdir" {print $2}' $details)
+
+echo "Moving $(pwd)/$1 to $pi_user@$pi_name.local:$pi_curdir"
+
+scp $1 $pi_user@$pi_name.local:$pi_curdir

@@ -1,0 +1,28 @@
+#!/bin/zsh
+
+source ~/.myscripts/config/piconfig.cfg
+
+if [[ -z $1 ]]; then
+    exit 0
+fi
+
+user=$(awk -F':' '$1=="pi_user" {print $2}' $details)
+pi_curdir="/home/$user/$1"
+
+if [[ "${pi_curdir: -1}" != "/" ]]; then
+    pi_curdir="$pi_curdir/"
+fi
+
+awk -F':' -v dir="$pi_curdir" '
+    BEGIN {f=0}
+    {
+        if ($1=="pi_curdir") { print $1 ":" dir; f=1; }
+        else                 { print $0 }
+    }
+    END {
+        if (f==0) {
+            print "pi_curdir:" dir
+        }
+    }
+' $details > pi_temp && mv pi_temp $details
+
