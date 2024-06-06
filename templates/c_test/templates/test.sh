@@ -1,7 +1,7 @@
 #!/bin/zsh
 
-test_root='./tests'
-test_cache='.test_cache'
+test_root="$PWD/tests"
+test_cache=".test_cache"
 
 
 setTestRoutine() {
