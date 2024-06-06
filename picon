@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source ~/.myscripts/config/piconfig.cfg
+source ~/.myscripts/config/pi.config
 
 pi_user=$(awk -F':' '$1=="pi_user" {print $2}' $details)
 pi_name=$(awk -F':' '$1=="pi_name" {print $2}' $details)

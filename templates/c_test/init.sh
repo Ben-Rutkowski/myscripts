@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source ~/.myscripts/config/c_test_config.cfg
+source ~/.myscripts/config/c_test.config
 
 # === Create Test Repository ===
 if [[ ! -d tests ]]; then

@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source ~/.myscripts/config/piconfig.cfg
+source ~/.myscripts/config/pi.config
 
 if [[ -z $1 ]]; then
     exit 0

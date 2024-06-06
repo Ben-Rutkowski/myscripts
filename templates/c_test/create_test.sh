@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source ~/.myscripts/config/c_test_config.cfg
+source ~/.myscripts/config/c_test.config
 
 if [[ -z $1 ]]; then
     echo 'No input given'
