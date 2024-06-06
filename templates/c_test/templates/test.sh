@@ -3,6 +3,14 @@
 test_root="$PWD/tests"
 test_cache=".test_cache"
 
+if [[ -e ".config.mk" ]]; then
+    make_config="$(pwd)/.config.mk"
+else
+    echo "Could not find .config.mk in working directory"
+fi
+
+
+# === Functions ===
 setTestRoutine() {
     if [[ -n $1 ]]; then
         echo "$1" > $test_cache 
@@ -16,7 +24,7 @@ setTestRoutine() {
 runTestRoutine() {
     if [[ -d "$test_root/$1" ]]; then
         cd "$test_root/$1"
-        make
+        make CONFIG_FILE=$make_config
         ./.run.sh
     else
         echo "Cannot run test routine: The test $test_root/$1 does not exist!"
@@ -42,7 +50,7 @@ runDefaultTestRoutine() {
 
 
 # === Set Test Routine ===
-if [[ -n $1 && $1 == "-s" ]]; then
+if [[ $1 == "-s" ]]; then
     setTestRoutine $2
     exit 0
 fi

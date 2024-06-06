@@ -1,7 +1,6 @@
-# === Path ===
-
-# === Compile ===
+include $(CONFIG_FILE)
 
 # === Source ===
+
 
 # === Build ===
