@@ -7,7 +7,6 @@ if [[ ! -d tests ]]; then
     mkdir tests
 else
     echo "There already exists a test repository"
-    exit 1
 fi
 
 # === Create Script and Cache ===

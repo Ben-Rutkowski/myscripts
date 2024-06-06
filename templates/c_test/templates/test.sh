@@ -3,6 +3,12 @@
 test_root="$PWD/tests"
 test_cache=".test_cache"
 
+if [[ -e ".path.config" ]]; then
+    source .path.config
+else
+    echo "No .path.config was found in the working directory"
+fi
+
 
 setTestRoutine() {
     if [[ -n $1 ]]; then
