@@ -1,10 +1,10 @@
 #!/bin/zsh
 
-source ~/.myscripts/config/c_test.config
+source ~/.myscripts/config/c_test.conf
 
 # === Create Test Repository ===
-if [[ ! -d tests ]]; then
-    mkdir tests
+if [[ ! -d $test_repo ]]; then
+    mkdir $test_repo
 else
     echo "There already exists a test repository"
 fi

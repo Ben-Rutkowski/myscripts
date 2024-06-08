@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source ~/.myscripts/config/pi.config
+source ~/.myscripts/config/pi.conf
 
 if [[ -z $1 ]]; then
     echo "No file selected"

@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-test_root="$PWD/tests"
+test_root="$PWD/test"
 test_cache=".test_cache"
 
 if [[ -e ".config.mk" ]]; then

@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source ~/.myscripts/config/pi.config
+source ~/.myscripts/config/pi.conf
 
 pi_user='benjaminrutkowski'
 pi_name='raspberrypi'
