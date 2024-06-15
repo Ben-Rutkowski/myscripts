@@ -1,3 +1,3 @@
 #!/bin/zsh
 
-echo "test run"
+echo "Run Test Case"
