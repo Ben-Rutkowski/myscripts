@@ -1,13 +1,26 @@
 include $(CONFIG_FILE)
-obj_DIR=objects
+
+
+# === Units ===
+# SRC  =$(call FirstOrderSource,$(src_DIR)/src,EXT) 
+# HEAD =$(call FirstOrderSource,$(src_DIR),EXT) 
+# OBJ  =$(call SourceToObject,$(SRC),$(obj_DIR))
 
 
 # === Build ===
-# WRONG :: NEEDS MODULES
-# $(cat_OBJ): $(cat_DIR)/%.o: $(call NameToSource,%,$(cat_SRC),.ext) $(headers)
-# 	@echo "--- Compiling <CATEGORY> in SUBDIRECTORY ---"
+subdirectory: $(obj_DIR) # $(OBJ)
+
+.SECONDEXPANSION:
+# $(OBJ): $(obj_DIR)/%.o: $(call NameToSource,%,$(SRC),EXT) $(HEAD)
+# 	@echo "--- Compiling <$(notdir $<)> in <SUBDIRECTORY> ---"
 
 
-# clean:
-# 	@echo "--- Cleaning SUBDIRECTORY ---"
-# 	rm $(obj_DIR)/*.o
+# --- Directory Management ---
+$(obj_DIR):
+	@mkdir -p $(obj_DIR)
+
+clean:
+	@echo "--- Cleaning <SUBDIRECTORY> ---"
+	rm $(obj_DIR)/*.o
+
+.PHONY:  subdirectory clean

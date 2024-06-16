@@ -15,3 +15,4 @@ fi
 # === Copy the Makefile ===
 mkdir $1
 cp $make_sub_temp "$1/Makefile"
+echo "objects/" > "$1/.gitignore"

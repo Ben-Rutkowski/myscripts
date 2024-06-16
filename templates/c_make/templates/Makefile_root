@@ -5,17 +5,16 @@ include .config.mk
 $(bld_DIR)/$(bld_NAME): # sub
 	@mkdir -p $(bld_DIR)
 	@echo "--- Linking Build ---"
-#	Build Command
 
 # sub:
 # 	$(MAKE) -C $(sub_DIR) CONFIG_FILE=$(CURDIR)/.config.mk ROOT=$(CURDIR)
 
+
+# === Directory Management ===
 clean:
 #	$(MAKE) -C $(sub_DIR) clean
 
 	@echo "--- Cleaning Build ---"
 	rm $(bld_DIR)/$(bld_NAME)
-
-
 
 .PHONY: clean # sub
