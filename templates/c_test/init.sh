@@ -10,6 +10,6 @@ else
 fi
 
 # === Create Script and Cache ===
-cp $test_temp .test.sh
-chmod +x .test.sh
+cp $test_temp ".test.sh"
+chmod +x ".test.sh"
 touch $test_cache

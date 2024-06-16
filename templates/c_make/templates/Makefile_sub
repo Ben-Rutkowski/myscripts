@@ -1,0 +1,11 @@
+obj_DIR=objects
+
+# === Build ===
+# WRONG :: NEEDS MODULES
+# $(cat_OBJ): $(cat_DIR)/%.o: $(call NameToSource,%,$(cat_SRC),.ext) $(headers)
+# 	@echo "--- Compiling <CATEGORY> in SUBDIRECTORY ---"
+
+
+# clean:
+# 	@echo "--- Cleaning SUBDIRECTORY ---"
+# 	rm $(obj_DIR)/*.o

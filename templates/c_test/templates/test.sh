@@ -1,5 +1,6 @@
 #!/bin/zsh
 
+root="$PWD"
 test_root="$PWD/test"
 test_cache=".test_cache"
 
@@ -24,7 +25,7 @@ setTestRoutine() {
 runTestRoutine() {
     if [[ -d "$test_root/$1" ]]; then
         cd "$test_root/$1"
-        make CONFIG_FILE=$make_config
+        make CONFIG_FILE=$make_config ROOT=$root
         ./.run.sh
     else
         echo "Cannot run test routine: The test $test_root/$1 does not exist!"
