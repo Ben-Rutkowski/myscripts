@@ -1,4 +1,6 @@
+include $(CONFIG_FILE)
 obj_DIR=objects
+
 
 # === Build ===
 # WRONG :: NEEDS MODULES

@@ -8,7 +8,7 @@ $(bld_DIR)/$(bld_NAME): # sub
 #	Build Command
 
 # sub:
-# 	$(MAKE) -C $(sub_DIR) CONFIG_FILE=$(CUR_DIR)/.config.mk ROOT=$(CUR_DIR)
+# 	$(MAKE) -C $(sub_DIR) CONFIG_FILE=$(CURDIR)/.config.mk ROOT=$(CURDIR)
 
 clean:
 #	$(MAKE) -C $(sub_DIR) clean
