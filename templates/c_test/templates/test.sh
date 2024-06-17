@@ -5,7 +5,7 @@ test_root="$PWD/test"
 test_cache=".test_cache"
 
 if [[ -e ".config.mk" ]]; then
-    make_config="$(pwd)/.config.mk"
+    make_config=".config.mk"
 else
     echo "Could not find .config.mk in working directory"
 fi

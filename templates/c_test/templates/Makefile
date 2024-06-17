@@ -1,4 +1,4 @@
-include $(CONFIG_FILE)
+include $(ROOT)/$(CONFIG_FILE)
 
 
 # === Source ===
@@ -33,7 +33,7 @@ $(test_OBJ): $(obj_DIR)/%.o: $(call NameToSource,%,$(test_SRC),.cpp)
 	$(comp_unit) $< $(flag_unit) $(inc_unit) -o $@
 
 # $(sub_OBJ):
-# 	$(MAKE) -C $(sub_DIR) $@ CONFIG_FILE=$(CONFIG_FILE) ROOT=$(ROOT)
+# 	$(call RecurMake,$(sub_DIR),$@)
 
 
 # --- Directory Management ---

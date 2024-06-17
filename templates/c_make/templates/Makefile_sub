@@ -1,4 +1,4 @@
-include $(CONFIG_FILE)
+include $(ROOT)/$(CONFIG_FILE)
 
 
 # === Units ===
@@ -8,8 +8,8 @@ OBJ  =$(call SourceToObject,$(SRC),$(obj_DIR))
 
 
 # === Compiler ===
-# comp =$(CXX)
-# flag =$(CXX_flag) -c
+comp =$(CXX)
+flag =$(CXX_flag) -c
 # inc  =-I$(sub_HEADDIR)
 
 

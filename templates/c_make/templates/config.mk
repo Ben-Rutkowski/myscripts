@@ -1,4 +1,5 @@
-ROOT ?=$(CURDIR)
+CONFIG_FILE ?=.config.mk
+ROOT        ?=$(CURDIR)
 
 
 # ================ Source Directories ================

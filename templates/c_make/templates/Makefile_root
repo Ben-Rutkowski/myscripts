@@ -6,25 +6,25 @@ include .config.mk
 
 
 # === Compiler ===
-# comp =$(CXX)
-# flag =$(CXX_flag)
-# inc  =
-# link =
+comp =$(CXX)
+flag =$(CXX_flag)
+inc  =
+link =
 
 
 # === Build ===
 $(bld_DIR)/$(bld_NAME): # sub
 	@mkdir -p $(bld_DIR)
 	@echo "--- Linking Build ---"
-#	$(comp) $(OBJ) $(flag) $(inc) $(link) -o $(bld_DIR)/$(bld_NAME)
+	$(comp) $(OBJ) $(flag) $(inc) $(link) -o $(bld_DIR)/$(bld_NAME)
 
 # sub:
-# 	$(MAKE) -C $(sub_DIR) CONFIG_FILE=$(CURDIR)/.config.mk ROOT=$(CURDIR)
+# 	$(call RecurMake,$(sub_DIR),)
 
 
 # === Directory Management ===
 clean:
-#	$(MAKE) -C $(sub_DIR) clean
+#	$(call RecurMake,$(sub_DIR),clean)
 
 	@echo "--- Cleaning Build ---"
 	rm $(bld_DIR)/$(bld_NAME)
