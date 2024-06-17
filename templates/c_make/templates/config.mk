@@ -23,6 +23,19 @@ bld_DIR  =$(ROOT)/build
 
 
 # --- Macros ---
+#     :Prepend:
+# Prepends a directory to every object in a list
+define Prepend # $1 prepend directory; $2 object list
+	$(patsubst %,$1/%,$2)
+endef
+
+#     :RecurMake:
+# Recursively call make in a given directory with the given 
+# build commands; will carry the proper config file and root path
+define RecurMake # $1 subdirectory; $2 build command
+	$(MAKE) -C $1 $2 CONFIG_FILE=$(CONFIG_FILE) ROOT=$(ROOT)
+endef
+
 #     :FirstOrderSource:
 # Finds all the sources in a given directory
 define FirstOrderSource # $1 base dir; $2 extension

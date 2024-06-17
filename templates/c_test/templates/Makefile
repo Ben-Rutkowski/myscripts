@@ -5,27 +5,37 @@ include $(CONFIG_FILE)
 test_SRC =$(call FirstOrderSource,$(CURDIR),.cpp) 
 test_OBJ =$(call SourceToObject,$(test_SRC),$(obj_DIR))
 
-# sub_SRC =$(sub_DIR)/source.cpp
-# sub_OBJ =$(call SourceToObject,$(sub_SRC),$(sub_DIR)/$(obj_DIR))
+# sub_SRC =$(sub_SRCDIR)/source.cpp
+# sub_OBJ =$(call SourceToObject,$(sub_SRC),$(obj_DIR))
+
+# OBJ =$(test_OBJ) $(call Prepend,$(sub_DIR),$(sub_OBJ))
+
+
+# === Compiler ===
+comp_unit =$(CXX)
+flag_unit =$(CXX_flag) -c
+inc_unit  =
+
+comp_test =$(CXX)
+flag_test =$(CXX_flag)
+inc_test  =
+link_test =
 
 
 # === Build ===
-$(comp_DIR)/test: $(test_OBJ) # $(sub_OBJ)
-	@mkdir -p $(obj_DIR)
-	@echo "Build Test Case"
+test: $(obj_DIR) $(test_OBJ) # $(sub_OBJ)
+	@echo "--- Linking Test Case ---"
+	$(comp_test) $(OBJ) $(flag_test) $(inc_test) $(link_test) -o $@
 
 .SECONDEXPANSION:
 $(test_OBJ): $(obj_DIR)/%.o: $(call NameToSource,%,$(test_SRC),.cpp)
 	@echo "--- Compiling Test Object <$(notdir $<)> ---"
+	$(comp_unit) $< $(flag_unit) $(inc_unit) -o $@
 
 # $(sub_OBJ):
-# 	$(call RecurObject,$@,$(sub_DIR))
+# 	$(MAKE) -C $(sub_DIR) $@ CONFIG_FILE=$(CONFIG_FILE) ROOT=$(ROOT)
 
 
-# --- Macros ---
-#     :RecurObject:
-# Builds the object files by recursively calling make in the
-# subdirectory containing the object file
-define RecurObject # $1 object list; $2 subdirectory
-	$(MAKE) -C $2 $(patsubst %,objects/%,$(notdir $1)) CONFIG_FILE=$(CONFIG_FILE) ROOT=$(ROOT)
-endef
+# --- Directory Management ---
+$(obj_DIR):
+	@mkdir -p $(obj_DIR)
