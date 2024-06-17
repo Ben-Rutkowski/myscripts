@@ -2,17 +2,24 @@ include $(CONFIG_FILE)
 
 
 # === Units ===
-# SRC  =$(call FirstOrderSource,$(src_DIR)/src,EXT) 
-# HEAD =$(call FirstOrderSource,$(src_DIR),EXT) 
-# OBJ  =$(call SourceToObject,$(SRC),$(obj_DIR))
+# SRC  =$(call FirstOrderSource,$(sub_SRCDIR),.ext) 
+# HEAD =$(call FirstOrderSource,$(sub_HEADDIR),.ext) 
+OBJ  =$(call SourceToObject,$(SRC),$(obj_DIR))
+
+
+# === Compiler ===
+# comp =$(CXX)
+# flag =$(CXX_flag) -c
+# inc  =-I$(sub_HEADDIR)
 
 
 # === Build ===
-subdirectory: $(obj_DIR) # $(OBJ)
+subdirectory: $(obj_DIR) $(OBJ)
 
 .SECONDEXPANSION:
-# $(OBJ): $(obj_DIR)/%.o: $(call NameToSource,%,$(SRC),EXT) $(HEAD)
-# 	@echo "--- Compiling <$(notdir $<)> in <SUBDIRECTORY> ---"
+# $(OBJ): $(obj_DIR)/%.o: $(call NameToSource,%,$(SRC),.ext) $(HEAD)
+# 	@echo "--- Compiling <$(notdir $<)> in <sub> ---"
+# 	$(comp) $< $(flag) $(inc) -o $@
 
 
 # --- Directory Management ---
@@ -20,7 +27,7 @@ $(obj_DIR):
 	@mkdir -p $(obj_DIR)
 
 clean:
-	@echo "--- Cleaning <SUBDIRECTORY> ---"
+#	@echo "--- Cleaning <sub> ---"
 	rm $(obj_DIR)/*.o
 
 .PHONY:  subdirectory clean

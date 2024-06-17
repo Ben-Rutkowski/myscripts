@@ -1,21 +1,25 @@
 ROOT ?=$(CURDIR)
 
 
-# === Source Directories ===
-# sub_DIR=$(ROOT)/sub
+# ================ Source Directories ================
+# --- sub ---
+# sub_DIR     =$(ROOT)/sub
+# sub_SRCDIR  =$(sub_DIR)/src
+# sub_HEADDIR =$(sub_DIR)/header
+# sub_OBJDIR  =$(sub_DIR)/$(obj_DIR)
+
+
+# ================ Common Variables ================
+obj_DIR =objects
 
 tst_DIR  =$(ROOT)/test
 bld_DIR  =$(ROOT)/build
-obj_DIR  =objects
-comp_DIR =compiled
-# bld_NAME=unnamed_DEBUG
+# bld_NAME =unnamed_DEBUG
 
 
-# === Compiler ===
+# ================ Compiler ================
 # CXX 	   =clang++
-# CXX_flag =-Wall -fdiagnostics-color=alwasy -g
-# CXX_inc  =
-# CXX_link =
+# CXX_flag =-Wall -fdiagnostics-color=always -g
 
 
 # --- Macros ---
