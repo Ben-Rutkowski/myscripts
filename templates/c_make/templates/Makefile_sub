@@ -1,24 +1,28 @@
 include $(ROOT)/$(CONFIG_FILE)
+# sub_NAME    =  ---
+# sub_DIR     =$(---_DIR)
+# sub_SRCDIR  =$(---_SRCDIR)
+# sub_HEADDIR =$(---_HEADDIR)
 
 
 # === Units ===
-# SRC  =$(call FirstOrderSource,$(sub_SRCDIR),.ext) 
-# HEAD =$(call FirstOrderSource,$(sub_HEADDIR),.ext) 
+# SRC  =$(call FirstOrderSource,$(sub_SRCDIR),.---) 
+# HEAD =$(call FirstOrderSource,$(sub_HEADDIR),.---) 
 OBJ  =$(call SourceToObject,$(SRC),$(obj_DIR))
 
 
 # === Compiler ===
 comp =$(CXX)
 flag =$(CXX_flag) -c
-# inc  =-I$(sub_HEADDIR)
+inc  =-I$(sub_HEADDIR)
 
 
 # === Build ===
 subdirectory: $(obj_DIR) $(OBJ)
 
 .SECONDEXPANSION:
-# $(OBJ): $(obj_DIR)/%.o: $(call NameToSource,%,$(SRC),.ext) $(HEAD)
-# 	@echo "--- Compiling <$(notdir $<)> in <sub> ---"
+# $(OBJ): $(obj_DIR)/%.o: $(call NameToSource,%,$(SRC),.---) $(HEAD)
+# 	@echo "=== Compiling <$(notdir $<)> in <$(sub_NAME)> ==="
 # 	$(comp) $< $(flag) $(inc) -o $@
 
 
@@ -27,7 +31,7 @@ $(obj_DIR):
 	@mkdir -p $(obj_DIR)
 
 clean:
-#	@echo "--- Cleaning <sub> ---"
-	rm $(obj_DIR)/*.o
+	@echo "=== Cleaning <$(sub_NAME)> ==="
+	rm -f $(obj_DIR)/*.o
 
-.PHONY:  subdirectory clean
+.PHONY: subdirectory clean

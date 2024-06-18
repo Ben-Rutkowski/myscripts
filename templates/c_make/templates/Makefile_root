@@ -1,32 +1,32 @@
 include .config.mk
+# all_OBJDIR =$(---_OBJDIR)
+# all_NAME   =
 
 
 # === Units ===
-# OBJ =$(sub_OBJDIR)/*.o
-
+OBJ =$(patsubst %,%/*.o,$(all_OBJDIR))
 
 # === Compiler ===
 comp =$(CXX)
 flag =$(CXX_flag)
-inc  =
 link =
 
 
 # === Build ===
-$(bld_DIR)/$(bld_NAME): # sub
+$(bld_DIR)/$(bld_NAME): $(all_NAME)
 	@mkdir -p $(bld_DIR)
-	@echo "--- Linking Build ---"
+	@echo "=== Linking Build ==="
 	$(comp) $(OBJ) $(flag) $(inc) $(link) -o $(bld_DIR)/$(bld_NAME)
 
-# sub:
-# 	$(call RecurMake,$(sub_DIR),)
+# ---:
+# 	$(call RecurMake,$(---_DIR),)
 
 
 # === Directory Management ===
 clean:
-#	$(call RecurMake,$(sub_DIR),clean)
+#	$(call RecurMake,$(---_DIR),clean)
 
 	@echo "--- Cleaning Build ---"
-	rm $(bld_DIR)/$(bld_NAME)
+	rm -f $(bld_DIR)/$(bld_NAME)
 
-.PHONY: clean # sub
+.PHONY: clean $(all_NAME)
