@@ -7,17 +7,17 @@ include $(ROOT)/$(CONFIG_FILE)
 test_SRC =$(call FirstOrderSource,$(CURDIR),.cpp) 
 test_OBJ =$(call SourceToObject,$(test_SRC),$(obj_DIR))
 
-sub_OBJ =$(call GetObjectsFilter,$(sub_DIR),$(test_OBJ))
+# sub_OBJ =$(call GetObjectsFilter,$(sub_DIR),$(test_OBJ))
 
 
 # === Compiler ===
 comp_unit =$(CXX)
 flag_unit =$(CXX_flag) -c
-inc_unit  =-I$(sub_HEADDIR)
+inc_unit  =$(patsubst %,-I%,$(sub_HEADDIR))
 
 comp_test =$(CXX)
 flag_test =$(CXX_flag)
-link_test =
+link_test =$(CXX_link)
 
 
 # === Build ===
@@ -30,8 +30,8 @@ $(test_OBJ): $(obj_DIR)/%.o: $(call NameToSource,%,$(test_SRC),.cpp)
 	@echo "--- Compiling Test Object <$(notdir $<)> ---"
 	$(comp_unit) $< $(flag_unit) $(inc_unit) -o $@
 
-$(sub_OBJ):
-	$(call RecurObject,$@)
+# $(sub_OBJ):
+# 	$(call RecurObject,$@)
 
 
 # --- Directory Management ---
