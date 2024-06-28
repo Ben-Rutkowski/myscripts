@@ -142,6 +142,9 @@ void TestSuite::evaluate() {
     std::string message;
     while (std::getline(program_log, line)) {
         pos = line.find("-SUC- ");
+        if (pos == std::string::npos)
+            pos = line.find("-ERR- ");
+
         if (pos != std::string::npos) {
             message = line.substr(pos+6);
 
