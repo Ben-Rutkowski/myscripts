@@ -15,12 +15,14 @@ obj_DIR =objects
 
 tst_DIR  =$(ROOT)/test
 bld_DIR  =$(ROOT)/build
-bld_NAME =_DEBUG
+# bld_NAME =_DEBUG
 
 
 # ================ Compiler ================
 # CXX 	 =clang++
 # CXX_flag =-Wall -fdiagnostics-color=always -g
+# CXX_inc  =
+# CXX_link =
 
 
 # --- Macros ---
