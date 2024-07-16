@@ -15,7 +15,7 @@ cur_test=$test_repo/$1
 
 # === Create the repository ===
 mkdir $cur_test
-echo "objects/\ntest" > "$cur_test/.gitignore"
+echo "objects/\ntest\nprogram.log" > "$cur_test/.gitignore"
 
 
 # === Copy Makefile and .run.sh Templates ===
