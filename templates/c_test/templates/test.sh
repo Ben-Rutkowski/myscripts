@@ -49,10 +49,26 @@ runDefaultTestRoutine() {
     fi
 }
 
+runAllTestRoutine() {
+    for test_path ($test_root/*); do
+        test_name=${test_path##*/}
+        if [ $test_name != "all" ]; then
+            runTestRoutine $test_name > /dev/null
+        fi
+
+        runTestRoutine "all"
+}
+ 
 
 # === Set Test Routine ===
 if [[ $1 == "-s" ]]; then
     setTestRoutine $2
+    exit 0
+fi
+
+# === Run All Routines ===
+if [[ $1 == "-a" ]]; then
+    runAllTestRoutine
     exit 0
 fi
 
