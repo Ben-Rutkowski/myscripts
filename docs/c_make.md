@@ -1,4 +1,4 @@
-#### [My Scripts](root.html) > C Make
+#### [My Scripts](index.html) > C Make
 
 ## C Make
 Manages the building of projects by creating a hierarchy of Makefiles.

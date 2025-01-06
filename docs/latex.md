@@ -1,4 +1,4 @@
-#### [My Scripts](root.html) > LaTeX
+#### [My Scripts](index.html) > LaTeX
 
 ## LaTeX
 Creates a LaTeX project template.
