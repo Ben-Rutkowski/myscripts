@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source ~/.myscripts/templates/c_make/c_make.conf
+source ~/.myscripts/c_make/c_make.conf
 
 if [[ -z $1 ]]; then
     echo "No subdirectory name was given."

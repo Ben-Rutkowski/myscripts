@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source ~/.myscripts/templates/latex/latex.conf
+source ~/.myscripts/latex/latex.conf
 
 # Create Directory Tree
 if [ $# -eq 0 ]; then

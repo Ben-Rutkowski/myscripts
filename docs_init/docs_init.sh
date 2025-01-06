@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source ~/.myscripts/templates/docs_init/docs_init.conf
+source ~/.myscripts/docs_init/docs_init.conf
 
 if [[ ! -d docs ]]; then
     mkdir docs
