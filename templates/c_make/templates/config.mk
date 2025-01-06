@@ -2,7 +2,7 @@ CONFIG_FILE ?=.config.mk
 ROOT        ?=$(CURDIR)
 
 
-# ================ Source Directories ================
+# ================ Sub-Directories ================
 # --- sub ---
 # sub_DIR     =$(ROOT)/sub
 # sub_SRCDIR  =$(sub_DIR)/src

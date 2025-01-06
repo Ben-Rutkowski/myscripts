@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source ~/.myscripts/config/c_make.conf
+source ~/.myscripts/templates/c_make/c_make.conf
 
 if [[ -f "Makefile" ]]; then
     echo "There already exists a Makefile: Will not replace it."
