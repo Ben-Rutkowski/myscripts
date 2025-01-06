@@ -17,7 +17,7 @@ Initialize the global variables in `config.mk`. Initialize the link commands for
 
 ---
 
-### Scripts
+#### Scripts
 
 > `create_make_root.sh`
 
@@ -29,7 +29,7 @@ Takes name as an argument; creates a sub-directory with the given name and `Make
 
 ---
 
-### Config
+#### Config
 Keeps the global variables for the entire project.
 
 > `config.mk`
@@ -44,7 +44,7 @@ Global variables are split into three categories.
 
 ---
 
-### Makefile (root)
+#### Makefile (root)
 Lives in root directory; is called by `make` to build the project. 
 
 > `Makefile`
@@ -57,7 +57,7 @@ Will recursively call `make` in all sub-directories. User must initialize variab
 
 ---
 
-### Makefile (sub)
+#### Makefile (sub)
 Lives in each sub-directory.
 
 > `Makefile`
