@@ -21,6 +21,9 @@ $(bld_DIR)/$(bld_NAME): $(all_NAME)
 # ---:
 # 	$(call RecurMake,$(---_DIR),)
 
+# docs:
+# 	$(MAKE) -C docs -s
+
 
 # === Directory Management ===
 clean:
