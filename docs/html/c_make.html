@@ -3,105 +3,99 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h4><a href="index.html">My Scripts</a> > C Make</h4>
-
-<h2>C Make</h2>
-
-<p>Manages the building of projects by creating a hierarchy of Makefiles.</p>
-
-<p>A project is a collection of sub-directories which contain source code and object files. There are two phases of building a project.</p>
-
-<ol>
+<h4 id="my-scripts-c-make"><a href="index.html">My Scripts</a> &gt; C
+Make</h4>
+<h2 id="c-make">C Make</h2>
+<p>Manages the building of projects by creating a hierarchy of
+Makefiles.</p>
+<p>A project is a collection of sub-directories which contain source
+code and object files. There are two phases of building a project.</p>
+<ol type="1">
 <li>Build the object files of each sub-directory.</li>
 <li>Compile every object file into an executable.</li>
 </ol>
-
-<p>When <code>make</code> is called, the root <code>Makefile</code> will call each sub-directory <code>Makefile</code> for Step 1, and then continue with Step 2.</p>
-
-<h4>Usage</h4>
-
-<p>Call <code>create_make_root.sh</code> on the root directory and then call <code>create_make_sub.sh $1</code> to create each sub-directory. </p>
-
-<p>Initialize the global variables in <code>config.mk</code>. Initialize the link commands for the root <code>Makefile</code>. Initialize the compile commands for each sub <code>Makefile</code>. </p>
-
+<p>When <code>make</code> is called, the root <code>Makefile</code> will
+call each sub-directory <code>Makefile</code> for Step 1, and then
+continue with Step 2.</p>
+<h4 id="usage">Usage</h4>
+<p>Call <code>create_make_root.sh</code> on the root directory and then
+call <code>create_make_sub.sh $1</code> to create each
+sub-directory.</p>
+<p>Initialize the global variables in <code>config.mk</code>. Initialize
+the link commands for the root <code>Makefile</code>. Initialize the
+compile commands for each sub <code>Makefile</code>.</p>
 <hr />
-
-<h4>Scripts</h4>
-
+<h4 id="scripts">Scripts</h4>
 <blockquote>
-  <p><code>create_make_root.sh</code></p>
+<p><code>create_make_root.sh</code></p>
 </blockquote>
-
-<p>Initializes project by creating a <code>Makefile</code>, <code>config.mk</code> and <code>.run.sh</code> in the project root directory.</p>
-
+<p>Initializes project by creating a <code>Makefile</code>,
+<code>config.mk</code> and <code>.run.sh</code> in the project root
+directory.</p>
 <blockquote>
-  <p><code>create_make_sub.sh $1</code></p>
+<p><code>create_make_sub.sh $1</code></p>
 </blockquote>
-
-<p>Takes name as an argument; creates a sub-directory with the given name and <code>Makefile</code>.</p>
-
+<p>Takes name as an argument; creates a sub-directory with the given
+name and <code>Makefile</code>.</p>
 <hr />
-
-<h4>Config</h4>
-
+<h4 id="config">Config</h4>
 <p>Keeps the global variables for the entire project.</p>
-
 <blockquote>
-  <p><code>config.mk</code></p>
+<p><code>config.mk</code></p>
 </blockquote>
-
 <p>Global variables are split into three categories.</p>
-
 <ul>
-<li><p><strong>Sub-Directories</strong>: Defines paths for <em>src</em>, <em>header</em>, <em>object</em> for each sub-directory.</p></li>
-<li><p><strong>Common Variables</strong>: Defines names for <em>object</em>, <em>test</em> and <em>build</em> directories, as well as the build name.</p></li>
-<li><p><strong>Compiler</strong>: Defines compiler flags split into <em>flags</em>, <em>includes</em> and <em>links</em>.</p></li>
+<li><p><strong>Sub-Directories</strong>: Defines paths for <em>src</em>,
+<em>header</em>, <em>object</em> for each sub-directory.</p></li>
+<li><p><strong>Common Variables</strong>: Defines names for
+<em>object</em>, <em>test</em> and <em>build</em> directories, as well
+as the build name.</p></li>
+<li><p><strong>Compiler</strong>: Defines compiler flags split into
+<em>flags</em>, <em>includes</em> and <em>links</em>.</p></li>
 </ul>
-
 <hr />
-
-<h4>Makefile (root)</h4>
-
-<p>Lives in root directory; is called by <code>make</code> to build the project. </p>
-
+<h4 id="makefile-root">Makefile (root)</h4>
+<p>Lives in root directory; is called by <code>make</code> to build the
+project.</p>
 <blockquote>
-  <p><code>Makefile</code></p>
+<p><code>Makefile</code></p>
 </blockquote>
-
-<p>Will recursively call <code>make</code> in all sub-directories. User must initialize variables and build commands for each sub-directory call.</p>
-
+<p>Will recursively call <code>make</code> in all sub-directories. User
+must initialize variables and build commands for each sub-directory
+call.</p>
 <ul>
-<li><p><code>all_OBJDIR</code>: a list of every object directories in sub-directories that will be used to build executable.</p></li>
-<li><p><code>all_NAME</code>: a list of every sub-directory name.</p></li>
+<li><p><code>all_OBJDIR</code>: a list of every object directories in
+sub-directories that will be used to build executable.</p></li>
+<li><p><code>all_NAME</code>: a list of every sub-directory
+name.</p></li>
 </ul>
-
 <hr />
-
-<h4>Makefile (sub)</h4>
-
+<h4 id="makefile-sub">Makefile (sub)</h4>
 <p>Lives in each sub-directory.</p>
-
 <blockquote>
-  <p><code>Makefile</code></p>
+<p><code>Makefile</code></p>
 </blockquote>
-
-<p>User must specify: </p>
-
+<p>User must specify:</p>
 <ul>
-<li>Local variables, <code>sub_NAME</code>, <code>sub_DIR</code>, <code>sub_SRCDIR</code> and <code>sub_HEADDIR</code>.</li>
-<li>Build variables <code>SRC</code>, <code>HEAD</code> paths for the sub-directory</li>
+<li>Local variables, <code>sub_NAME</code>, <code>sub_DIR</code>,
+<code>sub_SRCDIR</code> and <code>sub_HEADDIR</code>.</li>
+<li>Build variables <code>SRC</code>, <code>HEAD</code> paths for the
+sub-directory</li>
 <li>Compile commands for each type of <code>SRC</code></li>
 </ul>
-
-<h6>Build Variables</h6>
-
-<p>Can have multiple <code>SRC</code> variables in one sub-directory; e.g. <code>SRC_foo</code> and <code>SRC_bar</code>. To define such variables use</p>
-
+<h6 id="build-variables">Build Variables</h6>
+<p>Can have multiple <code>SRC</code> variables in one sub-directory;
+e.g. <code>SRC_foo</code> and <code>SRC_bar</code>. To define such
+variables use</p>
 <ul>
-<li><p><code>FirstOrderSource</code>: searches the directory and returns all files with the given extension.</p></li>
-<li><p><code>SecondOrderSource</code>: searches every directory in the directory and returns files with the given extension.</p></li>
+<li><p><code>FirstOrderSource</code>: searches the directory and returns
+all files with the given extension.</p></li>
+<li><p><code>SecondOrderSource</code>: searches every directory in the
+directory and returns files with the given extension.</p></li>
 </ul>
-
-<p><code>OBJ_foo</code> variables must be defined for each extension used in the sources <code>SRC_foo</code>, <code>SRC_bar</code>. A build command must be added for each extension (each <code>OBJ_foo</code>).</p>
+<p><code>OBJ_foo</code> variables must be defined for each extension
+used in the sources <code>SRC_foo</code>, <code>SRC_bar</code>. A build
+command must be added for each extension (each
+<code>OBJ_foo</code>).</p>
 </body>
 </html>
