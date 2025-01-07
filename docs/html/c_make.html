@@ -17,28 +17,45 @@ code and object files. There are two phases of building a project.</p>
 <p>When <code>make</code> is called, the root <code>Makefile</code> will
 call each sub-directory <code>Makefile</code> for Step 1, and then
 continue with Step 2.</p>
-<h4 id="usage">Usage</h4>
+<h6 id="usage">Usage</h6>
 <p>Call <code>create_make_root.sh</code> on the root directory and then
 call <code>create_make_sub.sh $1</code> to create each
 sub-directory.</p>
 <p>Initialize the global variables in <code>config.mk</code>. Initialize
 the link commands for the root <code>Makefile</code>. Initialize the
 compile commands for each sub <code>Makefile</code>.</p>
+<h6 id="scripts">Scripts</h6>
+<ul>
+<li><a href="#create_make_root"><strong>create_make_root</strong></a>:
+initializes project</li>
+<li><a href="#create_make_sub"><strong>create_make_sub</strong></a>:
+creates sub-directory</li>
+</ul>
+<h6 id="files">Files</h6>
+<ul>
+<li><a href="#config"><strong>config</strong></a>: global variables for
+every <code>Makefile</code></li>
+<li><a href="#makefile-root"><strong>Makefile (root)</strong></a>:
+<code>Makefile</code> in root directory</li>
+<li><a href="#makefile-sub"><strong>Makefile (sub)</strong></a>:
+<code>Makefile</code> in sub-directories</li>
+</ul>
 <hr />
-<h4 id="scripts">Scripts</h4>
+<h4 id="create_make_root">create_make_root</h4>
 <blockquote>
 <p><code>create_make_root.sh</code></p>
 </blockquote>
 <p>Initializes project by creating a <code>Makefile</code>,
 <code>config.mk</code> and <code>.run.sh</code> in the project root
 directory.</p>
+<h4 id="create_make_sub">create_make_sub</h4>
 <blockquote>
 <p><code>create_make_sub.sh $1</code></p>
 </blockquote>
 <p>Takes name as an argument; creates a sub-directory with the given
 name and <code>Makefile</code>.</p>
 <hr />
-<h4 id="config">Config</h4>
+<h4 id="config">config</h4>
 <p>Keeps the global variables for the entire project.</p>
 <blockquote>
 <p><code>config.mk</code></p>
@@ -53,7 +70,6 @@ as the build name.</p></li>
 <li><p><strong>Compiler</strong>: Defines compiler flags split into
 <em>flags</em>, <em>includes</em> and <em>links</em>.</p></li>
 </ul>
-<hr />
 <h4 id="makefile-root">Makefile (root)</h4>
 <p>Lives in root directory; is called by <code>make</code> to build the
 project.</p>
@@ -69,7 +85,6 @@ sub-directories that will be used to build executable.</p></li>
 <li><p><code>all_NAME</code>: a list of every sub-directory
 name.</p></li>
 </ul>
-<hr />
 <h4 id="makefile-sub">Makefile (sub)</h4>
 <p>Lives in each sub-directory.</p>
 <blockquote>

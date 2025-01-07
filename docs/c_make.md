@@ -10,18 +10,31 @@ A project is a collection of sub-directories which contain source code and objec
 
 When `make` is called, the root `Makefile` will call each sub-directory `Makefile` for Step 1, and then continue with Step 2.
 
-#### Usage
+###### Usage
 Call `create_make_root.sh` on the root directory and then call `create_make_sub.sh $1` to create each sub-directory. 
 
 Initialize the global variables in `config.mk`. Initialize the link commands for the root `Makefile`. Initialize the compile commands for each sub `Makefile`. 
 
+###### Scripts
+
+- [**create_make_root**](#create_make_root): initializes project
+- [**create_make_sub**](#create_make_sub): creates sub-directory
+
+###### Files
+
+- [**config**](#config): global variables for every `Makefile`
+- [**Makefile (root)**](#makefile-root): `Makefile` in root directory
+- [**Makefile (sub)**](#makefile-sub): `Makefile` in sub-directories
+
 ---
 
-#### Scripts
+#### create_make_root
 
 > `create_make_root.sh`
 
 Initializes project by creating a `Makefile`, `config.mk` and `.run.sh` in the project root directory.
+
+#### create_make_sub
 
 > `create_make_sub.sh $1`
 
@@ -29,7 +42,7 @@ Takes name as an argument; creates a sub-directory with the given name and `Make
 
 ---
 
-#### Config
+#### config
 Keeps the global variables for the entire project.
 
 > `config.mk`
@@ -42,8 +55,6 @@ Global variables are split into three categories.
 
 - **Compiler**: Defines compiler flags split into *flags*, *includes* and *links*.
 
----
-
 #### Makefile (root)
 Lives in root directory; is called by `make` to build the project. 
 
@@ -54,8 +65,6 @@ Will recursively call `make` in all sub-directories. User must initialize variab
 - `all_OBJDIR`: a list of every object directories in sub-directories that will be used to build executable.
 
 - `all_NAME`: a list of every sub-directory name.
-
----
 
 #### Makefile (sub)
 Lives in each sub-directory.
