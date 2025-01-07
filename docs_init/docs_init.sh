@@ -15,4 +15,6 @@ cp $make "docs/Makefile"
 cp $run docs/.run.sh
 cp $style docs/html/style.css
 
+echo ".run.sh" > docs/.gitignore
+
 chmod +x docs/.run.sh
