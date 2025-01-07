@@ -15,3 +15,5 @@ fi
 # === Copy the Makefile ===
 cp $make_root_temp "Makefile"
 cp $conf_temp ".config.mk"
+cp $run_temp ".run.sh"
+chmod +x .run.sh

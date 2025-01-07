@@ -21,7 +21,7 @@ Initialize the global variables in `config.mk`. Initialize the link commands for
 
 > `create_make_root.sh`
 
-Initializes project by creating a `Makefile` and `config.mk` in the project root directory.
+Initializes project by creating a `Makefile`, `config.mk` and `.run.sh` in the project root directory.
 
 > `create_make_sub.sh $1`
 
