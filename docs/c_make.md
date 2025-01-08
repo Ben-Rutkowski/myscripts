@@ -3,6 +3,7 @@
 ## C Make
 Manages the building of projects by creating a hierarchy of Makefiles.
 
+###### Description
 A project is a collection of sub-directories which contain source code and object files. There are two phases of building a project.
 
 1. Build the object files of each sub-directory.
@@ -23,8 +24,8 @@ Initialize the global variables in `config.mk`. Initialize the link commands for
 ###### Files
 
 - [**config**](#config): global variables for every `Makefile`
-- [**Makefile (root)**](#makefile-root): `Makefile` in root directory
-- [**Makefile (sub)**](#makefile-sub): `Makefile` in sub-directories
+- [**Makefile** (root)](#makefile-root): `Makefile` in root directory
+- [**Makefile** (sub)](#makefile-sub): `Makefile` in sub-directories
 
 ---
 
@@ -79,7 +80,7 @@ User must specify:
 
 ###### Build Variables
 
-Can have multiple `SRC` variables in one sub-directory; e.g. `SRC_foo` and `SRC_bar`. To define such variables use
+Can have multiple `SRC` variables in one sub-directory; *e.g.*, `SRC_foo` and `SRC_bar`. To define such variables use
 
 - `FirstOrderSource`: searches the directory and returns all files with the given extension.
 

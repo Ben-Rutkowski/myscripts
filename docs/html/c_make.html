@@ -8,6 +8,7 @@ Make</h4>
 <h2 id="c-make">C Make</h2>
 <p>Manages the building of projects by creating a hierarchy of
 Makefiles.</p>
+<h6 id="description">Description</h6>
 <p>A project is a collection of sub-directories which contain source
 code and object files. There are two phases of building a project.</p>
 <ol type="1">
@@ -35,9 +36,9 @@ creates sub-directory</li>
 <ul>
 <li><a href="#config"><strong>config</strong></a>: global variables for
 every <code>Makefile</code></li>
-<li><a href="#makefile-root"><strong>Makefile (root)</strong></a>:
+<li><a href="#makefile-root"><strong>Makefile</strong> (root)</a>:
 <code>Makefile</code> in root directory</li>
-<li><a href="#makefile-sub"><strong>Makefile (sub)</strong></a>:
+<li><a href="#makefile-sub"><strong>Makefile</strong> (sub)</a>:
 <code>Makefile</code> in sub-directories</li>
 </ul>
 <hr />
@@ -100,8 +101,8 @@ sub-directory</li>
 </ul>
 <h6 id="build-variables">Build Variables</h6>
 <p>Can have multiple <code>SRC</code> variables in one sub-directory;
-e.g. <code>SRC_foo</code> and <code>SRC_bar</code>. To define such
-variables use</p>
+<em>e.g.</em>, <code>SRC_foo</code> and <code>SRC_bar</code>. To define
+such variables use</p>
 <ul>
 <li><p><code>FirstOrderSource</code>: searches the directory and returns
 all files with the given extension.</p></li>
